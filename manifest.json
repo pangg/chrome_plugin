@@ -1,0 +1,16 @@
+{
+  "name": "乐天插件",
+  "manifest_version": 2,
+  "version": "1.0",
+  "description": "乐天插件",
+  "browser_action": {
+    "default_icon": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://global.rakuten.com/zh-cn/search/?k=test&l-id=search_regular&vm=0"],
+      "js": ["jquery-3.2.1.min.js", "script.js"],
+	  "css": ["style.css"]
+    }
+  ]
+}
