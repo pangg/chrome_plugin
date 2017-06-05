@@ -12,7 +12,7 @@ $(document).ready(function(){
 	//console.log($('.b-item .b-mod-item-vertical .b-text .b-text-overflow a').text());
 	
 	//jquery获取当前页数据显示到指定位置
-	/*$('.b-item .b-mod-item-vertical .b-text .b-text-overflow').each(function(){
+	$('.b-item .b-mod-item-vertical .b-text .b-text-overflow').each(function(){
 		//console.log($(this).find('a').text());
 		var blackDiv = $(this).parent().parent().find('.rekutenItemList');
 		var ht = $(this).find('a').clone();
@@ -21,23 +21,26 @@ $(document).ready(function(){
 		blackDiv.append('<br/>'+title);
 		//console.log(title);
 		//$(ht).appendTo('.rekutenItemList');
-	});*/
+	});
 	
-	
+	//遍历当前页面商品，通过ajax获取其详情页信息
 	/*$('.b-item .b-mod-item-vertical').each(function(){
 		var host = 'http://global.rakuten.com';
 		//var getId = $(this).parent().find('.b-mod-item-vertical').attr('id');
 		var getItemUrl = $(this).find('.b-img a').attr('href');
 		var url = host + getItemUrl;
-		
+		var byInsertObj = $(this).find('.rekutenItemList');
+		//console.log(byInsertObj);
 		$.post(url, {}, function (data, textStatus) { 
-			console.log(url);
-		});
+			var rest = $(data).find('#cart-form .m-price').find('strong');
+			
+			byInsertObj.append(rest);
+		}, 'html');
 		
 	});*/
 	
 	//jquery通过ajax获取其他页面html，并转换成dom对象获取需求数据显示到指定位置
-	var url = 'http://global.rakuten.com/zh-cn/store/shirohato/item/05t758493/';
+	/*var url = 'http://global.rakuten.com/zh-cn/store/shirohato/item/05t758493/';
 	$.post(url, {}, function (data) { 
 	
 			//reg = /\<div[^\>]+\>[\r\n.]*\<\/div\>/gi;
@@ -47,6 +50,6 @@ $(document).ready(function(){
 			//$(".rekutenItemList").append(rest);
 
 			console.log(rest);
-		}, 'html');
+		}, 'html');*/
 	
 });
