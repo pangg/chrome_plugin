@@ -3,16 +3,61 @@ document.getElementById("user[login]").value="xiaoma";
 document.getElementById("user[email]").value="hacker_ma@163.com";
 document.getElementById("user[password]").value="123456";*/
 
+/*function httpRequest(url, callback){
+		var xhr = new XMLHttpRequest();
+		xhr.open("GET", url, true);
+		xhr.onreadystatechange = function() {
+			if (xhr.readyState == 4) {
+				callback(xhr.responseText);
+			}
+		}
+		xhr.send();
+	}*/
+
 $(document).ready(function(){
-	alert('乐天插件测试');
+	//alert('乐天插件测试');
+	/*var turl = chrome.extension.getURL("test.csv");
+	 Papa.parse(turl, {
+         download: true,
+         complete: function(results) {
+             window.tdata = results.data;
+             
+
+         }
+     });*/
+	 //background 与 content_script 之间的通信
+	chrome.runtime.sendMessage('getCSVData', function(response){
+		//document.write(response);
+		console.log(response);
+	});
+	
+	
+
+	/*chrome.tabs.onUpdated.addListener(function(tabId , info) {
+		if (info.status == "complete") {
+			chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
+				var url = tabs[0].url;
+				console.log(url+'321123')
+				if(url=="http://global.rakuten.com/zh-cn/search/?k=test&l-id=search_regular&vm=0"){
+					//chrome.tabs.executeScript(null,{code:"alert(window.tdata)"});
+					$('<div class="fonts rekutenItemList">店铺昵称</div>').appendTo('.b-item .b-mod-item-vertical');
+					console.log(window.tdata);
+				}
+			});
+		}
+	});*/
+	
+	$('<div class="fonts rekutenItemList">店铺昵称</div>').appendTo('.b-item .b-mod-item-vertical');
+	
+	
 	
 	//$("#user[login]").val("tesst");
-	$('<div class="fonts rekutenItemList">店铺昵称</div>').appendTo('.b-item .b-mod-item-vertical');
+	//$('<div class="fonts rekutenItemList">店铺昵称</div>').appendTo('.b-item .b-mod-item-vertical');
 	
 	//console.log($('.b-item .b-mod-item-vertical .b-text .b-text-overflow a').text());
 	
 	//jquery获取当前页数据显示到指定位置
-	$('.b-item .b-mod-item-vertical .b-text .b-text-overflow').each(function(){
+	/*$('.b-item .b-mod-item-vertical .b-text .b-text-overflow').each(function(){
 		//console.log($(this).find('a').text());
 		var blackDiv = $(this).parent().parent().find('.rekutenItemList');
 		var ht = $(this).find('a').clone();
@@ -21,7 +66,7 @@ $(document).ready(function(){
 		blackDiv.append('<br/>'+title);
 		//console.log(title);
 		//$(ht).appendTo('.rekutenItemList');
-	});
+	});*/
 	
 	//遍历当前页面商品，通过ajax获取其详情页信息
 	/*$('.b-item .b-mod-item-vertical').each(function(){

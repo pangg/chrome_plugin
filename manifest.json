@@ -12,5 +12,13 @@
       "js": ["jquery-3.2.1.min.js", "script.js"],
 	  "css": ["style.css"]
     }
-  ]
+  ],
+  "permissions":[
+		"tabs",
+		"http://global.rakuten.com/*"
+		],
+  "background": {
+		"scripts": ["jquery-3.2.1.min.js", "papaparse.min.js", "csv.js"]
+	  }
+  
 }
