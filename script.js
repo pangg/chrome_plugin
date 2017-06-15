@@ -46,7 +46,7 @@ $(document).ready(function(){
 			var site = $.inArray(shopName, shopNameArr);
 			console.log(site, bb)
 			if(site != -1){
-				space += '<th>採点:</th><td>'+response[site][2]+'</td><th>売上げ:</th><td>'+response[site][5]+'件</td><th>開店日:</th><td>'+response[site][8]+'</td>';
+				space += '<th>採点:</th><td>'+response[site][2]+'</td><th>評価:</th><td>'+response[site][5]+'件</td><th>開店日:</th><td>'+response[site][8]+'</td>';
 				html = '<div class="everyAddDiv fonts"><table><tr>'+space+'</tr></table></div>';
 				//如果店铺存在，则插入数据
 				$(this).find('.rsrSResultItemTxt').append(html)
@@ -54,13 +54,16 @@ $(document).ready(function(){
 			
 			//匹配标题中的关键词并做出标记
 			var titles = $(this).find('.rsrSResultItemTxt h2 a').html()
-			console.log(titles)
+			var discriptions =  $(this).find('.rsrSResultItemTxt .copyTxt').html()
+			discriptions = $.trim(discriptions);
+			console.log(discriptions)
 			for(var ks in keywordsArr){
 				rps = '<span style="color:red">'+keywordsArr[ks]+'</span>';
 				titles = titles.replace(keywordsArr[ks], rps)
+				discriptions = discriptions.replace(keywordsArr[ks], rps)
 			}
 			$(this).find('.rsrSResultItemTxt h2 a').html(titles)
-			
+			$(this).find('.rsrSResultItemTxt .copyTxt').html(discriptions)
 		})
 		
 		
@@ -77,7 +80,7 @@ $(document).ready(function(){
 			var siteL = $.inArray(shopNameL, shopNameArr);
 			//console.log(siteL)
 			if(siteL != -1){
-				spaceL += '<th>採点:</th><td>'+response[siteL][2]+'</td><th>売上げ:</th><td>'+response[siteL][5]+'件</td><th>開店日:</th><td>'+response[siteL][8]+'</td>';
+				spaceL += '<th>採点:</th><td>'+response[siteL][2]+'</td><th>評価:</th><td>'+response[siteL][5]+'件</td><th>開店日:</th><td>'+response[siteL][8]+'</td>';
 				htmlL = '<div class="everyAddDiv fonts"><table><tr>'+spaceL+'</tr></table></div>';
 				//如果店铺存在，则插入数据
 				$(this).find('.rsrSResultItemTxt').append(htmlL)
@@ -86,12 +89,16 @@ $(document).ready(function(){
 			
 			//匹配标题中的关键词并做出标记
 			var titlesL = $(this).find('.rsrSResultItemTxt h2 a').html()
-			console.log(titlesL)
+			var descriptionL = $(this).find('.rsrSResultItemTxt .copyTxt').html()
+			descriptionL = $.trim(descriptionL);
+			//console.log(descriptionL)
 			for(var ksl in keywordsArr){
 				rps = '<span style="color:red">'+keywordsArr[ksl]+'</span>';
 				titlesL = titlesL.replace(keywordsArr[ksl], rps)
+				descriptionL = descriptionL.replace(keywordsArr[ksl], rps)
 			}
 			$(this).find('.rsrSResultItemTxt h2 a').html(titlesL)
+			$(this).find('.rsrSResultItemTxt .copyTxt').html(descriptionL)
 		})
 		
 		//九宫格样式
@@ -114,7 +121,7 @@ $(document).ready(function(){
 				//获取当前店铺是否存在，若存在返回位置（键值）
 				var siteTpl = $.inArray(shopNameTpl, shopNameArr);
 				if(siteTpl != -1){
-					spaceTpl = '<tr><th>採点:</th><td>'+response[siteTpl][2]+'</td></tr><tr><th>売上げ:</th><td>'+response[siteTpl][5]+'</td></tr><tr><th>開店日:</th><td>'+response[siteTpl][8]+'</td></tr>';
+					spaceTpl = '<tr><th>採点:</th><td>'+response[siteTpl][2]+'</td></tr><tr><th>評価:</th><td>'+response[siteTpl][5]+'</td></tr><tr><th>開店日:</th><td>'+response[siteTpl][8]+'</td></tr>';
 					htmlTpl += '<div class="tplEveryAddDiv tplFonts"><table>'+spaceTpl+'</table></div>';
 					
 					$(this).find('.rsrWSBelowItemPicture').append(htmlTpl)

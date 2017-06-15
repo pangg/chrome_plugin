@@ -7,6 +7,9 @@
 	padding-right: 5px;
 	color: green;
 }
+.fonts td{
+	padding-right: 5px;
+}
 .tplFonts{
 	color: red;
 	font-size: 90%
