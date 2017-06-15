@@ -1,3 +1,20 @@
 .fonts{
+	padding-top:10px;
+	color: red;
+	font-size: 90%
+}
+.fonts th{
+	padding-right: 5px;
+	color: green;
+}
+.tplFonts{
+	color: red;
+	font-size: 90%
+}
+.tplFonts th{
+	padding-right: 5px;
+	color: green;
+}
+.fontcs{
 	color: red;
 }

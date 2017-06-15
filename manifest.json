@@ -8,7 +8,7 @@
   },
   "content_scripts": [
     {
-      "matches": ["http://global.rakuten.com/zh-cn/search/?k=test&l-id=search_regular&vm=0"],
+      "matches": ["http://global.rakuten.com/zh-cn/search/?k=Test&l-id=search_regular&vm=0", "http://search.rakuten.co.jp/search/mall/*"],
       "js": ["jquery-3.2.1.min.js", "script.js"],
 	  "css": ["style.css"]
     }
