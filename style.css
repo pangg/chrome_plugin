@@ -21,3 +21,46 @@
 .fontcs{
 	color: red;
 }
+#fb_related_summary{
+	color: green;
+	padding: 0px 0px 10px;
+}
+
+#fb_related_summary td{
+	color: red;
+}
+
+table{
+	table-layout:fixed;
+	empty-cells:show;
+	border-collapse: collapse;
+	//margin:0 auto;
+}
+td{
+	height:20px;
+}
+table.frs_table{
+	//width: 100%;
+	border:1px solid #cad9ea;
+	color:green;
+	margin-bottom: 15px;
+}
+
+table.frs_table td,table.frs_table th{
+	border:1px solid #cad9ea;
+	padding:0 1em 0;
+	height:30px;
+}
+
+table.key_table{
+	border:1px solid #cad9ea;
+	color:green;
+	//margin-bottom: 10px;
+}
+table.key_table td,table.key_table th{
+	border:1px solid #cad9ea;
+	padding:0 1em 0;
+	height:30px;
+}
+
+
